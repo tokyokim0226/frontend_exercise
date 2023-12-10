@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Little Lemon</title>
+
+  <meta property="og:title" content="Our Menu">
+  <meta property="og:type"  content="website">
+  <meta property="og:image" content="logo.png">
+  <meta property="og:url"   content="https://littlelemon/">
+  <meta property="og:description" content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Little Lemon">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png">
+  </header>
+  <main>
+    <form>
+      <div>
+        <label for="user_email">User Email</label>
+        <input type="email" id="user_email" name="user_email">
+      </div>
+      <div>
+        <label for="booking_date">Date of Booking</label>
+        <input type="date" id="booking_date" name="booking_date">
+      </div>
+      <div>
+        <label for="number_people">Number of People</label>
+        <input type="number" id="number_people" name="number_people" min="1" max="8">
+      </div>
+      <div>
+        <label for="check">I agree to the cancellation policy</label>
+        <input type="checkbox" id="check" name="check" required>
+      </div>
+      <button type="submit">Book Now</button>
+    </form>
+    <audio loop controls>
+        <source> src = "music.ogg" <!--first type in the name of the audio/video file that you want to add in--> 
+        type = "audio/ogg" <!-- then type in the file type-->
+    </audio>
+  </main>
+  <footer>
+    <p>Copyright Little Lemon</p>
+  </footer>
+</body>
+
+</html>

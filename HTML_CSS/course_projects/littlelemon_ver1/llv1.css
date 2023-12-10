@@ -1,0 +1,166 @@
+body{
+    background-color: rgb(238, 245, 255);
+    font-family: 'Markazi Text',serif;
+    margin-top:3rem;
+    margin-bottom:3rem;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+h2{
+    font-size: 1.7rem;
+}
+
+/* Understand the different types of selectors::
+    1. Descendant selector --> matches all elements that are descendants of a specified elmeent
+        ex) div p {}
+    2. Child selector --> Selects all elements that are the children of a specified elment
+        ex) div > p {}
+    3. Adjacent Sibilng Selector
+    --> A sibling element is an element that has the same parent element (and thus is in the same "level" as another element)
+    --> The adjacent sibling selector is used to select an element that is directly after another specific element
+        ex) div + p {}
+    4. General Sibling Selector
+    --> Selects all elements that are next siblings of a specified element
+        ex) div ~ p {}
+      */
+
+/* Inline vs Inline-block vs Block 
+ A block-level element always starts on a new line
+The browser automatically adds some space (a margin) before and after the element 
+ !!! <p> <div> - 2 commonly used block elements 
+
+ Inline element does not start on a new line 
+ Only takes up as much width as necessary (<span> is a common example) 
+ Inline vs Inline-block vs Block 
+https://www.samanthaming.com/pictorials/css-inline-vs-inlineblock-vs-block/ */
+
+header > img{
+    display:block;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav ul {
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: rgb(60, 53, 53);
+    list-style: none;
+    text-align:center;
+}
+
+/* Follow the LVHA principle --> link, visited, hover, active */
+.navlink:link{
+    color: aliceblue;
+}
+.navlink:visited{
+    color:rgb(161, 78, 161)
+}
+.navlink:hover{
+    color:rgb(5, 180, 5);
+}
+.navlink:active{
+    color: rgb(1, 108, 1);
+}
+.navlink:link, .navlink:visited{
+    text-decoration: none;
+}
+
+nav li{
+    display:inline-block;
+    /* background-color: rgba(231,201,100,0.5); */
+    margin: 0.5rem;
+    font-size: 2rem;
+}
+
+section {
+    display:flex;
+}
+
+.specialOffer{
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    background-image: url("https://www.shutterstock.com/image-photo/mexican-street-tacos-beef-vegetables-260nw-1480657007.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: rgba(27,27,27,255)
+}
+
+.specialOffer h1{
+    margin-left: 2rem;
+    margin-top:2rem;
+    margin-bottom:1rem;
+    color:white;
+    text-align: left;
+}
+
+.specialOffer p{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 0.3rem;
+    background-color: rgba(158, 184, 217,0.7);
+    color:black;
+}
+
+article{
+    flex:1;
+}
+
+.others .newMenu{
+    margin:0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(124, 147, 195);
+}
+
+.others .bookNow{
+    margin:0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(124, 147, 195);
+}
+
+.others .openingHours{
+    margin:0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(124, 147, 195);
+}
+
+.others h2{
+    text-align: center;
+}
+
+.others p{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.others a{
+    margin-left:1rem;
+}
+
+.photo{
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    max-width: 24vw;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+
+}
+
+
+footer {
+    display:flex;
+}
+
+footer div {
+    flex: 1;
+}

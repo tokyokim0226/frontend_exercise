@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Little Lemon</title>
+
+        <meta property="og:title" content="Our Website">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="logo.png">
+        <meta property="og:url" content="https://littlelemon/">
+        <meta property="og:description" content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:site_name" content="Little Lemon">
+
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <img src="logo.png">
+        </header>
+        <main>
+            <h1>Sign Up</h1>
+            <form>
+                <div>
+                    <label for ="username">Username</label>
+                    <input type="text" id="username" name="username" required minlength="2">
+                </div>
+                <div>
+                    <label for="user_password">Password</label>
+                    <input type="password" id="user_password" name="user_password" required minlength="2">
+                </div>
+                <button type="submit">Log In</button>
+            </form>
+            
+            <figure> 
+                <img src="photo.png" width="320" alt="My Profile Photo"> 
+                <figcaption>A photo of myself on a beach in 2015</figcaption> 
+             </figure>
+             
+            <h2>Book A Table</h2>
+            <form method="POST">
+                <fieldset id="size">
+                    <legend>Table Size</legend>
+                    <label>
+                        <input type="radio" value="2" name="size"> 2-person table
+                    </label>
+                    <label>
+                        <input type="radio" valule="4" name="size" checked> 4-person table
+                    </label>
+                    <label>
+                    <input type="radio" value="6" name="size"> 6-person table
+                </label>
+                </fieldset>
+                <br>
+                <fieldset id="location">
+                    <legend>Location</legend>
+                <label>
+                    <input type="radio" value="indoors" name="location" checked> Indoor
+                </label>
+                <label>
+                    <input type="radio" value="outdoors" name="location"> Outdoors
+                </label>
+                </fieldset>
+                <br>
+                <button type="submit">Book Table</button>
+            </form>
+
+            <h2>Book A Table (UPDATED)!</h2>
+            <form method="POST">
+                <div>
+                    <label for="booking_date">Booking Date</label>
+                    <input type="date" id="booking_date" name="booking_date">
+                </div>
+                <div>
+                    <label for="booking_people">Number of People</label>
+                    <input type="range" id="booking_people" name="booking_people" min="1" max="10" value="4" oninput="this.nextElementSibling.value = this.value">
+                    <output>4</output>
+                </div>
+                <div>
+                    <label for="booking_location">Location</label>
+                    <input id="booking_location" name="booking_location" list="locations">
+                    <datalist id="locations"> <!--Useful when the options might get more diverse in the future-->
+                        <option value="Downtown"></option>
+                        <option value="Uptown"></option>
+                    </datalist>
+                    
+                </div>
+                <div>
+                    <label for="response">Additional Comments</label><br>
+                    <textarea id="response" name="response" rows="10" cols="30" maxlength=”200”> 
+                    </textarea> 
+                </div>
+                <div>
+                    <button type="button" onclick="alert('You just clicked!')">Click Me! 
+                    </button> 
+                </div>
+                <div>
+                    <fieldset> 
+                        <legend>Personal Info</legend> 
+                        <label for="fname">First name:</label><br> 
+                        <input type="text" id="fname" name="fname" value="John"><br> 
+                        <label for="lname">Last name:</label><br> 
+                        <input type="text" id="lname" name="lname" value="Doe"><br> 
+                      </fieldset> 
+                      
+                      <fieldset> 
+                        <legend>Qualificaiton</legend> 
+                        <label for="pdegree">Primary degree:</label><br> 
+                        <input type="text" id="pdegree" name="degree" value="Masters"><br> 
+                        <label for="fos">Last name:</label><br> 
+                        <input type="text" id="fos" name="field" value="Psychology"><br> 
+                      </fieldset> 
+                </div>
+            </form>
+        </main>
+
+    </body>
+</html>
