@@ -5,6 +5,7 @@ console.log('-------------- Practice 1 --------------')
 const myBoolean = true;
 let myString = 'hello world';
 var firstNumber = 20;
+var thirdNumber = 50;
 var secondNumber = 40;
 //can use let here as well. var is not preferred because it can be redeclared,
 //whereas a let variable can only be reassigned and not redeclared
