@@ -5,7 +5,7 @@ function myFunction() {
 //need to call/invoke the function
 myFunction()
 
-//immediately invoked function 
+//immediately invoked function small change
 
 
 //parameters/arguments --> two sides of the same coin

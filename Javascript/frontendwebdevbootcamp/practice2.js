@@ -1,8 +1,5 @@
-const arr = [1,2,3];
-for (let i=0;i<arr.length ;i++){
-    console.log(arr[i])
-}
-
-arr.forEach(arrItem => {
-    console.log(arrItem)
-})
+const grandparent = document.querySelector(".grandparent")
+// After the queryselector, you need to make sure that the element/class/id that you are selecting by is embraced by quotes
+// single quotation also seems to be ok
+// without the quotation marks --> class and 
+const 
