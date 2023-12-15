@@ -79,7 +79,12 @@ function showRiddle() {
 
   const questionElem = document.createElement('p');
   questionElem.textContent = question;
-  questionElem.className = "riddle-question";
+  //instead of class, you can set an ID tag that will make it unique throughout the whole page
+  //use setAttribute.('id', 'riddle-answer')
+
+  //however, we do not need to define the id or class since for this case, we just need to 
+  //know whether there is a riddle there in place or not, which can be determined by simply
+  //looking for a pre-existing paragraph <p> tag inside the container .riddle-content
 
   const answerElem = document.createElement('p');
   answerElem.textContent = answer;
@@ -101,6 +106,11 @@ function showRiddle() {
 */
 function revealAnswers() {
   const container = document.querySelector('.riddle-content');
+
+  //same thing can also be done by asking if there is already a paragraph tag within the 
+  //container - if there is, that means that a riddle embedded inside a paragraph tag
+  //does exist inside 
+
   if (container.innerHTML === '' ) {
     alert("Click on Riddle me first!");
     return;
