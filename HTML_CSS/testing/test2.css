@@ -1,24 +1,10 @@
-.box{
-    background-color:aqua;
-    border-radius: 5px;
-    margin: 2px;
-    padding:10px;
-    border:solid;
+div {
+    background-color: navy;
+    color: white;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    box-shadow: 1px 10px 10px 10px rgba(0,0,0,0.2);
+    border: 5px solid green;
 }
-/* The box model is comprised of the following layers:
-The Content is what is displayed (as you set out, such as an image)
-The Padding is the space between the content and the border, the first layer of extra space you give around the content
-The Border is the visible/invisible line you have around the edge of a box up to this point (which comprises of the content and the padding)
-The Margin is the final layer of outer space around the box, which will provide the empty space between the boxes*/
-
-.flex-container{
-    flex: 0 1 auto;
-}
-/* gap can be thought of as a little bit of extra margin space between different boxes */
-
-.box3{
-    background-color: blanchedalmond;
-    align-self: center;
-}
-
-/* justify-content: alilgnment on main axis */
