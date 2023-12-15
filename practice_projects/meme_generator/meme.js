@@ -79,10 +79,17 @@ function showRiddle() {
 
   const questionElem = document.createElement('p');
   questionElem.textContent = question;
+  questionElem.className = "riddle-question";
+
+  const answerElem = document.createElement('p');
+  answerElem.textContent = answer;
+  answerElem.className = "riddle-answer";
+  answerElem.hidden = true;
 
   const container = document.querySelector('.riddle-content');
   clearAll();
   container.appendChild(questionElem);
+  container.appendChild(answerElem);
 }
 
 /**
@@ -93,7 +100,17 @@ function showRiddle() {
 * - If there is a riddle shown but no answer, unhide the answer!
 */
 function revealAnswers() {
-  
+  const container = document.querySelector('.riddle-content');
+  if (container.innerHTML === '' ) {
+    alert("Click on Riddle me first!");
+    return;
+  }
+  answerElem = container.querySelector('.riddle-answer');
+  if (answerElem.hidden === true) {
+    answerElem.hidden = false;
+  }else{
+    alert("The answer is already revealed!");
+  }
 }
 
 /**
