@@ -1,0 +1,32 @@
+nav {
+    background-color: navy;
+    height: 60px;
+    color: white;
+    position: fixed;
+    width:100%;
+    /* The same thing can also be done by width:100vw; (viewport width)
+    viewport height: 100vh */
+    top: 0px;
+    left: 0px;
+}
+
+body{
+    margin: 0px;
+}
+
+h4{
+    margin:0;
+    line-height: 60px;
+    padding-left: 10px;
+}
+
+.box {
+    width: 200px;
+    height:200px;
+    background-color: green;
+    margin: 20px;
+}
+
+.boxes {
+    margin-top: 60px;
+}
