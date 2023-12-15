@@ -1,8 +1,3 @@
-
-/**
-* TODO: Implement a function that clears all the content
-* prior to generating new random content
-*/
 function clearAll() {
 
 }
@@ -14,8 +9,21 @@ function clearAll() {
 */
 function showMeme() {
   // Value is a string representing image URL
+
+  //generate random imageURL
   const randomMemeUrl = getRandomData('memes');
-  console.log(randomMemeUrl);
+
+  //select the empty div element where we want the image to show
+  const container = document.querySelector('.meme-content');
+
+  //create an image element
+  const newImg = document.createElement('img'); //we want to create an image element
+  newImg.setAttribute('src', randomMemeUrl);
+  //figure out how to make sure to clear the screen of any content before creating that image
+  if (container.querySelector('img')){
+    container.textContent = '';
+  }
+  container.appendChild(newImg);
 }
 
 /**
