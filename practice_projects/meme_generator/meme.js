@@ -1,12 +1,22 @@
 function clearAll() {
+  //selecting each of the containers that should have the content that we are putting in
+  const memeContainer = document.querySelector('.meme-content');
+  const jokeContainer = document.querySelector('.joke-content');
+  const quoteContainer = document.querySelector('.quote-content');
+  const riddleContainer = document.querySelector('.riddle-content');
+
+  //we want to make sure that it is cleared using this function
+  memeContainer.innerText = '';
+  jokeContainer.innerText = '';
+  quoteContainer.innerText = '';
+  riddleContainer.innerText = '';
+
+  //textcontent can also be used
+  //however, textcontent gets that content of all elements, including <script> and <style> elements
+
 
 }
 
-/**
-* TODO: 
-* - Show a random Meme in the correct location
-* - Never show more than 1 meme at a time
-*/
 function showMeme() {
   // Value is a string representing image URL
 
@@ -20,30 +30,39 @@ function showMeme() {
   const newImg = document.createElement('img'); //we want to create an image element
   newImg.setAttribute('src', randomMemeUrl);
   //figure out how to make sure to clear the screen of any content before creating that image
-  if (container.querySelector('img')){
-    container.textContent = '';
-  }
+  clearAll();
   container.appendChild(newImg);
 }
 
-/**
-* TODO: 
-* - Show a random joke in the correct location
-* - Never show more than 1 joke at a time
-*/
+
 function showJoke() {
   // Value is a string representing the joke
   const randomJokeText = getRandomData('jokes');
+  const newP = document.createElement('p');
+  newP.textContent = randomJokeText;
+
+  clearAll();
+  //above, we defined a container by selecting the div with the class 'meme-content' by using:
+  // const conatiner = document.querySelector('.meme-content');
+  //however, we can do that in one step with the code shown below
+  //select that div using querySelector and then immediately appendChild 
+  document.querySelector('.joke-content').appendChild(newP);
 }
 
-/**
-* TODO: 
-* - Show a random quote in the correct location
-* - Never show more than 1 quote at a time
-*/
 function showQuote() {
   // Value should be in format: { quote: '', author: '' }
   const randomQuote = getRandomData('quotes');
+
+  const quote = document.createElement('p');
+  const author = document.createElement('p');
+
+  quote.textContent = randomQuote.quote;
+  author.textContent = "- " + randomQuote.author;
+
+  clearAll();
+  const container = document.querySelector('.quote-content');
+  container.appendChild(quote);
+  container.appendChild(author);
 }
 
 /**
@@ -55,6 +74,15 @@ function showQuote() {
 function showRiddle() {
   // Value should be in format: { question: '', answer: '' }
   const randomRiddle = getRandomData('riddles');
+
+  const {question, answer} = randomRiddle;
+
+  const questionElem = document.createElement('p');
+  questionElem.textContent = question;
+
+  const container = document.querySelector('.riddle-content');
+  clearAll();
+  container.appendChild(questionElem);
 }
 
 /**
