@@ -1,13 +1,20 @@
+html {
+    font-size: 16px;
+}
+
 nav {
     background-color: navy;
     height: 60px;
     color: white;
+    /* fixed positioning very useful for a nav bar
+    can do it on the sides if you want, and also applicable to the footer of a webpage */
     position: fixed;
     width:100%;
     /* The same thing can also be done by width:100vw; (viewport width)
     viewport height: 100vh */
     top: 0px;
     left: 0px;
+    z-index: 1;
 }
 
 body{
@@ -28,5 +35,26 @@ h4{
 }
 
 .boxes {
-    margin-top: 60px;
+    margin-top: 80px;
+}
+
+.rel-position{
+    /* relative positioning makes it so that an element has the z-index (which has to do with
+    which elements are placed "above or below" each other as on the z-axis (perpendicular to screen) */
+    position: relative;
+    top: 10px;
+}
+
+/* absolute positioning has to be used in relation with relative positioning
+if there isn't any parent element that the absolutely positioned element is going to be 
+positioned relatively to, it will default to having an absolute position relative to the viewport itself isntead */
+.abs-position{
+    position:absolute;
+    width:100%;
+    height:20px;
+    background-color: orange;
+    top:0;
+    left:0;
+    z-index:2;
+
 }
