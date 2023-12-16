@@ -6,15 +6,23 @@ nav {
     background-color: navy;
     height: 60px;
     color: white;
+
     /* fixed positioning very useful for a nav bar
     can do it on the sides if you want, and also applicable to the footer of a webpage */
+    
     position: fixed;
     width:100%;
+
     /* The same thing can also be done by width:100vw; (viewport width)
     viewport height: 100vh */
     top: 0px;
     left: 0px;
     z-index: 1;
+    font-size: 1rem;
+    /* Rem (short for “root-em”) units dictate an element's font size relative
+     to the size of the root element. 
+     
+     */
 }
 
 body{
@@ -55,6 +63,18 @@ positioned relatively to, it will default to having an absolute position relativ
     background-color: orange;
     top:0;
     left:0;
-    z-index:2;
-
+    z-index:2; 
 }
+
+/* systematic way to write css html 
+1. How do I want to arrange these html elements on the epage? What do i want
+    Never want to go into it without thinking about how you want it ton the page
+2. How do I want to arrange those in the form of HTML
+    - Need foresight as to how to use divs and some other semantic elements
+3. How can I use CSS to achieve the layout I have imagined
+4. How should each element be styled
+
+--> once you got all the elements layed out on the page in the layout that
+you deisre, styling becomes rather trivial --> it's simply small tweaks in the more
+detailed graphics of the website 
+*/
