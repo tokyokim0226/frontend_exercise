@@ -14,7 +14,9 @@
 - Is a detailed mobile, tablet, and desktop design important?
     --> if there is a mobile application, x the need
 - Are there breakpoint "standards" that we can use?
-
-
-
+    - for example, bootstrap has a standard set of breakpoints that they offer 
+    - order of the breakpoints really matter 
+    - min width is a mobile first design
+    - max width is a desktop first approach
+    
 */
