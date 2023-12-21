@@ -8,3 +8,28 @@ flexbox is a layout model for displaying items in a single dimension
 --> as in a row or a column
 
 */
+.container{
+  /* When you enable flexbox on a container, all of the child elements become a flex container */
+  display: flex;
+}
+
+.item {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+    margin: 5px;
+}
+
+.item-3{
+    display: flex;
+}
+
+
+.subitem {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    margin: 5px;   
+}
