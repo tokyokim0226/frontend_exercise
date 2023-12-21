@@ -1,3 +1,59 @@
 * {
-    color: red;
+    box-sizing: border-box;
+    /* The box sizing attribute allows us to include 
+    the padding and border into an element's total height and width
+     */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ecf2f8;
+}
+
+#testimonial-grid-container {
+    padding: 5% 3%;
+}
+
+#testimonial-1 {
+    background-color: #7541c8;
+    color:#ffffff
+}
+#testimonial-2 {
+    background-color: #48556a;
+    color:#ffffff
+}
+#testimonial-3 {
+    background-color: #ffffff;
+}
+#testimonial-4 {
+    background-color: #19212e;
+    color:#ffffff
+}
+#testimonial-5 {
+    background-color: #ffffff;
+}
+
+.testimonial {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+#container-left {
+    color:purple
+}
+
+@media (min-width: 576px) {
+    /* test incrementally
+
+    p {
+        color:red;
+    }
+
+    put media queries at bottom of css so that they
+    do not get overwritten */
+
+    #testimonial-grid-container {
+        display: flex;
+    }
 }
