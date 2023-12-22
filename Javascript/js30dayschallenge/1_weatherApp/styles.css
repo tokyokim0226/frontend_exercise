@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    /* box-sizing: content-box vs border-box
+    content-box --> gives you default CSS box-sizing behavior --> the box is the size of the content
+    border-box --> the box size includes the border and the padding (x margin)
+    */
+
+}
+
+body {
+    background: #222222; 
+    /* CSS 3 Digit Hex Colors 
+    some six-digit hex colors can be written using a three-digit shorthand RRGGBB > RGB
+    here, #222 is equal to #222222 */
+}
