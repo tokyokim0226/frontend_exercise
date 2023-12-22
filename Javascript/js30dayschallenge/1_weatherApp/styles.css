@@ -11,8 +11,56 @@
 }
 
 body {
-    background: #222222; 
+    background: #222; 
     /* CSS 3 Digit Hex Colors 
     some six-digit hex colors can be written using a three-digit shorthand RRGGBB > RGB
     here, #222 is equal to #222222 */
+}
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff; /*determines the color of the text inside the card*/
+    margin: 100px auto 0;  
+    /*margin shorthand property
+    4 values -> top right bottom left (clockwise)
+    3 values -> top right&left bottom
+    2 values -> top&bottom right&left
+    1 value -> all four margins
+    In this case it is 3 values --> 100px at top, left/right is auto, 0px for bottom
+    */
+    border-radius: 20px; /*makes the corners round */
+    padding: 40px 35px;
+    text-align: center;
+}
+
+.search {
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between; /*defines how the browser distributes space between and around content items along the
+    main axis of a flex container*/
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
 }
