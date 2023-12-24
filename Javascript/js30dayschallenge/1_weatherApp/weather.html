@@ -25,7 +25,7 @@
                 <div class="col">
                     <img src="images/humidity.png" alt="humidity-icon">
                     <div>
-                        <p class="humidity">50%</p>
+                        <p class="humidity">50 %</p>
                         <p>Humidity</p>
                     </div>
                 </div>
@@ -39,5 +39,33 @@
             </div>
         </div>
     </div>
+
+<script>
+
+const apiKey = "958c4f54e4b35fff2ef316bc3a2439dd"; 
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+
+async function checkWeather(city){
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json(); //This data will have all the data about the particular city we search for
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "℃";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
+    document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+}
+
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
+})
+
+checkWeather();
+
+</script>
 </body>
 </html>
