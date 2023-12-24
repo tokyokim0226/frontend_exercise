@@ -1,0 +1,139 @@
+*{
+    /* Applicable for all the HTML elements (initilizing - css reset) */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+
+.todo-app {
+    width:90%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px; 
+    /* Horizontally centered because of left/right auto for margin */
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: #002765;
+    display:flex;
+    align-items:center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#edeef0;
+    border-radius: 40px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.row input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+}
+
+.row button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul li {
+    list-style:none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    /* user-select property controls whether the user can select text */
+    cursor: pointer;
+    position: relative;
+
+}
+
+ul li::before {
+    content: '';
+    position: absolute;
+    /* position notes
+    default position is static positioning
+    relative positioning is similar to static positioning except that: 
+    top left right bottom is able to be changed
+    relative allows you to change the element's position in the document
+    relative to where it would be if it was in static positioning
+    
+    absolute positioning > completely removfes the element from the document flow
+    all other elements are positioned as if that element didnt' exist at all
+    absolutely positions inside of some parent container it can reference
+
+    fixed--> stay in the same place despite scrolling
+    also is always relative to the whole html document
+    */
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 10px;
+    left: 8px; 
+    /* top/left/bottom/right --> determines the position of the item */
+
+}
+
+/* Why there should be no space betwen li and .checked 
+If I add a space between li and .checked, it means that I want to style elements that are child elements of list elements that have
+the class of checked, instead of selecting li elements that have the class of checked
+*/
+ul li.checked{ 
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url(images/checked.png);
+}
+
+ul li span {
+    position:absolute;
+    right:0;
+    top:5px;
+    width:40px;
+    height:40px;
+    font-size: 22px;
+    color:#555;
+    line-height:40px;
+    text-align:center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: #edeef0
+}
+
+ul li span:active {
+    background: #bbbcbe
+}
