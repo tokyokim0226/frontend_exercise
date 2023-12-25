@@ -47,7 +47,7 @@ body{
     text-align: left;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     /*Notes on transitions and transformations
     
     - When adding any kind of movement to your project, keep it simple, subtle, and consistent
@@ -63,5 +63,20 @@ body{
 #answer-buttons .btn:hover {
     background: #222;
     color:#fff;
+}
 
+#next-btn {
+    background: #001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    /* if I want a previous button next to it, I shall have a container
+    that emcompasses both the previous and the next buttons and then
+    have that container have a flex display */
+    display:none;
 }
