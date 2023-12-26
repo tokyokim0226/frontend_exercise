@@ -26,7 +26,7 @@ const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
-// variables to store current question number and the score (# of questions answerred correctly)
+// variables to store current question number and the score (# of questions answerred correctly) 
 let currentQuestionIndex = 0;
 let score = 0;
 
