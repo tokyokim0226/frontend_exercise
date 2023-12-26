@@ -36,7 +36,7 @@ body{
     font-weight: 600;
 }
 
-#answer-buttons .btn {
+.btn {
     background: #fff;
     color: #222;
     font-weight: 500;
@@ -60,7 +60,7 @@ body{
     */
 }
 
-#answer-buttons .btn:hover {
+.btn:hover {
     background: #222;
     color:#fff;
 }
@@ -79,4 +79,12 @@ body{
     that emcompasses both the previous and the next buttons and then
     have that container have a flex display */
     display:none;
+}
+
+.correct {
+    background: #9aeabc;
+}
+
+.incorrect {
+    background: #ff9393;
 }
