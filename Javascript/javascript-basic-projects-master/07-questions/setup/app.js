@@ -1,5 +1,8 @@
 //Method 1 -using selectors inside the element
 
+//this method can be more specific
+// X have to look from the document each and every time
+
 const questions = document.querySelectorAll(".question");
 questions.forEach(function(question){
     const btn = question.querySelector(".question-btn"); //limiting where you are looking for to only within the question instead of from the whole document

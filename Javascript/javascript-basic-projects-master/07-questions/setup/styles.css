@@ -168,7 +168,7 @@ p {
 }
 @media screen and (min-width: 992px) {
   .section-center {
-    width: 95vw;
+    width: 95vw; 
   }
 }
 main {
@@ -231,7 +231,7 @@ Questions
   margin-bottom: 0;
 }
 
-/* hide text */
+/* hide & show text --> toggle using js */
 .question-text {
   display: none;
 }
