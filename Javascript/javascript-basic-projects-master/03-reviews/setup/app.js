@@ -30,3 +30,60 @@ const reviews = [
   },
 ];
 
+//electing items
+const img = document.getElementById("person-img");
+const author = document.getElementById("person-author");
+const job = document.getElementById("person-job");
+const info = document.getElementById("person-info");
+
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const randomBtn = document.querySelector('.random-btn');
+
+//set starting item
+let currentItem = 0;
+
+//load initial item
+window.addEventListener('DOMContentLoaded', function(){ //DOMContentLoaded basically detects for when the entire DOM for the webpage has loaded
+  showPerson(currentItem);
+});
+
+//show person based on item
+// we want to create a function for this because we don't want to repetitively use 5~6 lines of code (inside this function) for when we are pressing buttons/any instance that requires us to update the page
+function showPerson(person) {
+  const item = reviews[person];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+}
+
+//show next person
+nextBtn.addEventListener('click', () => {
+  currentItem++;
+  currentItem = currentItem % 4
+  showPerson(currentItem);
+})
+
+prevBtn.addEventListener('click', () => {
+  currentItem --;
+  currentItem = mod(currentItem, reviews.length)
+  showPerson(currentItem);
+});
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+randomBtn.addEventListener('click', () => {
+  num = createRandomNum();
+  while (currentItem == num){
+    num=createRandomNum();
+  }
+  currentItem=num;
+  showPerson(num);
+});
+
+function createRandomNum() {
+  return Math.floor(Math.random()*reviews.length);
+} 
