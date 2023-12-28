@@ -70,21 +70,24 @@ body {
   font-family: var(--ff-secondary);
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
-  line-height: 1.5;
+  /* determines the spacing between lines */
+  line-height: 1.5; 
   font-size: 0.875rem;
 }
 ul {
+  /* removing bullet points */
   list-style-type: none;
 }
 a {
   text-decoration: none;
+  /* underlining, overlining, striking through --> adding visual effects to the text */
 }
 h1,
 h2,
 h3,
 h4 {
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
+  letter-spacing: var(--spacing); /*Horizontal spacing behavior between letters (text characters)*/
+  text-transform: capitalize; /*capitalize, uppercase, lowercase, none, full-width, full-size-kana(for japanese) --> specifying how to capitalize an element's text*/
   line-height: 1.25;
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);
@@ -106,6 +109,7 @@ p {
   color: var(--clr-grey-5);
 }
 @media screen and (min-width: 800px) {
+  /* the word screen is adding the conditions to the media query */
   h1 {
     font-size: 4rem;
   }
