@@ -86,4 +86,4 @@ randomBtn.addEventListener('click', () => {
 
 function createRandomNum() {
   return Math.floor(Math.random()*reviews.length);
-} 
+}
