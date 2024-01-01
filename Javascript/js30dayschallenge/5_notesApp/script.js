@@ -15,13 +15,13 @@ function updateStorage(){
 createBtn.addEventListener("click", () => {
 
     let inputBox = document.createElement("p"); //creating a p element with the name of inputBox
-    let img = document.createElement("img");
+    let img = document.createElement("img"); //create image element
     inputBox.classList.add("input-box");
     inputBox.setAttribute("contenteditable", true);
     img.src = "images/delete.png";
     notesContainer.appendChild(inputBox).appendChild(img);
 
-})
+});
 
 notesContainer.addEventListener("click", function(e){
     if(e.target.tagName === "IMG"){
