@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Meme HTML Page</title>
+    <link rel="stylesheet" href="meme.css">
+    <!-- Do not add script tag here
+        will slow down the page loading speed -->
+</head>
+
+<body>
+
+<!-- Definition of a semantic HTML
+    -> A semantic element clearly describes its meaning to both the browser and the developer.  
+    building an HTML document with a bunch of div elements is not "semantic" - in other words, we are
+    not really explaining what our doucment means to a developer who is looking at the raw source code.
+    The HTML source code itself does not contain much meaning about how the document is oriented
+
+    some tags that could make a document more "semantic" include:
+    nav, section, main, article, footer, header, etc. - these give a general outline of the document
+
+    It is also important to note that the idea with the newest HTML standard is that each HTML tag should
+    represent the INTENT of the document, not the style. In general, you could possibly use tags such as <strong>
+    and <em>> (italics), but these are not recommended as they are more to do with the style than the  meaning
+    of the document.
+
+    
+-->
+<!-- Link to the crash course in HTML and DOM by Zach Goll - 
+    https://www.zachgollwitzer.com/posts/2021/fullstack-developer-series/7-html-crash-course -->
+<main>
+    <section class="content">
+        <!-- Your HTML code goes here -->
+        <h2>Output</h2>
+
+        <!-- Hint - Adding element or id - 
+        the div element with a unique id or class name can be a great way to establish
+        a 'container' for future content (even before that content exists) -->
+        
+        <!-- Give the div a class or a id -->
+        <h3>Programmer Memes</h3>
+        <div class="meme-content"> <!--These should be very easy to select using javascript-->
+        </div>
+
+        <h3>Tell me something funny!</h3>
+        <div class="joke-content">
+            
+        </div>
+
+        <h3>Give me some wisdom...</h3>
+        <div class="quote-content">
+            
+        </div>
+
+        <h3>I want a Riddle</h3>
+        <div class="riddle-content">
+            
+        </div>
+
+    </section>
+    
+    <!-- No need to change anything in this section -->
+    <section class="sidebar">
+      <h2>Actions</h2>
+      <!-- The functions here, such as showMeme() and showJoke() are defined within the javascript -->
+      <button onclick="showMeme()">Show a Meme</button>
+      <button onclick="showJoke()">Tell Me a Joke</button>
+      <button onclick="showQuote()">Random Quote</button>
+      <button onclick="showRiddle()">Riddle me</button>
+      <button class="reveal-btn" onclick="revealAnswers()">Reveal Riddle Answer</button>
+      <p class="attribution">Code challenge by <a href="https://www.twitter.com/zg_dev" target="_top">@zg_dev</a></p> 
+    </section>
+</main>
+<!-- Why should script tags be placed at the end of body tag?
+    This is because when the browser encounters a <script> tag, it loads and executes the javascript code 
+    immediately right there on the spot. If this tag is somewhere near the top of the document, the browser
+    will ttempt to load and execute the javascript code first right there and there, which may result in a slow
+    down of the loading of the page (the page rendering speed and thus the webpage will take more time to load)
+    
+    Simply put, it helps reduce the page loading time by allowing the rest of the page to load before
+    loading the javascript files, which in many cases can be large -->
+<script src="meme.js" type="text/javascript"></script>
+</body>
+
+<!-- Can anything be placed after the closing body </body> tag?
+only comments and the end tag for the html (</html>) are allowed after the end tag of the body
+- it should be the second last element in the whole document -->
+
+</html>
