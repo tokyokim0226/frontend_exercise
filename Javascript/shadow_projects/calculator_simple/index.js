@@ -15,6 +15,7 @@ function clearDisplay(){
 }
 
 function calculate() {
+    //try catch to catch the error if the function doesn't work - input is not as expected
     try{
         display.value = eval(display.value);
         flag = false;
