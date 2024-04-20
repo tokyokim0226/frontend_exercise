@@ -6,13 +6,13 @@ function showNotes(){
     notesContainer.innerHTML = localStorage.getItem("notes");
 }
 
-showNotes();
+showNotes();  
 
 function updateStorage(){
     localStorage.setItem("notes", notesContainer.innerHTML);
 }
 
-createBtn.addEventListener("click", () => {
+createBtn.addEventListener("cli ck", () => {
 
     let inputBox = document.createElement("p"); //creating a p element with the name of inputBox
     let img = document.createElement("img"); //create image element
@@ -37,9 +37,9 @@ notesContainer.addEventListener("click", function(e){
     }
 })
 
-document.addEventListener("keydown", event =>{
-    if (event.key === "Enter") {
-        document.execCommand("insertLineBreak");
-        event.preventDefault();
-    }
-})
+// document.addEventListener("keydown", event =>{
+//     if (event.key === "Enter") {
+//         document.execCommand("insertLineBreak");
+//         event.preventDefault();
+//     }
+// })
