@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding: 0 ;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box; 
+    /* box-sizing property allows us to include the padding and border in an element's total width and height 
+    applying this to all elements is usually safe and wise  */
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4203a9, #90bafc);
+    color: #fff; 
+    padding: 10px;
+}
+.calculator{
+    width: 100%;
+    max-width: 600px;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.calculator h1{
+    font-size: 60px;
+
+}
+
+.calculator h1 span {
+    color: #ffff76;
+}
+
+.input-box{
+    margin: 40px 0;
+    padding:35px;
+    border: 10px;
+    background: rgba(255,255,255,0.3);
+    display:flex;
+    align-items: center;
+}
+
+.input-box input{
+    flex:1; 
+    /* If an element has flex:1, this means that the size of all the other elements will have the same width as their content, but the element with flex;1 will have the remaining full space given to it */
+    margin-right: 20px;
+    padding: 14px 20px;
+    /* top right bottom left
+       top right&left bottom
+       top&bottom right&left
+       top&right&left&bottom */
+    border:0;
+    outline:0;
+    font-size:18px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.input-box button {
+    background: #ffff76;
+    border: 0;
+    outline: 0;
+    padding: 15px 30px;
+    border-radius: 5px;
+
+}
