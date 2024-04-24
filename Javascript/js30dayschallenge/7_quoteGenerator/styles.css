@@ -104,5 +104,6 @@ body{
     /* you can also select either odd or even child elements that are nested inside the parent element */
     background: transparent;
     color: #333;
+    background-color: #333;
 
 }
