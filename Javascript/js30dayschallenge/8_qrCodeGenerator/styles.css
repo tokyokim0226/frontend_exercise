@@ -77,6 +77,9 @@ body {
     animation: shake 0.1s linear 10;
 }
 
+/* The @keyframes CSS at-rule controls the intermediate steps in a CSS animation sequence by defining styles for keyframes (or waypoitns) along the animation sequence.
+
+You basically are in more control over the intermediate steps of the animation sequence than a transition */
 @keyframes shake {
     0%{
         transform: translateX(0);
