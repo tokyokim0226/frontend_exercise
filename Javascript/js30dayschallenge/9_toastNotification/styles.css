@@ -1,0 +1,57 @@
+body {
+    background: #f7edff;
+}
+
+.buttons {
+    margin: 50px;
+}
+
+.buttons button {
+    background: #333;
+    margin: 0;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    height: 40px;
+    width: 120px;
+    outline: 0;
+    border:0;
+}
+
+#toastBox {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.toast {
+    width: 400px;
+    height: 80px;
+    background: white;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.toast i {
+    margin: 0 20px;
+    font-size: 35px;
+    color:green;
+}
+
+.toast.error i {
+    /* difference between leaving a space between */
+    color: red;
+}
+
+.toast.invalid i {
+    color: orange;
+}
