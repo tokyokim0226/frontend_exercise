@@ -42,6 +42,11 @@ function showToast(msg) {
         toast.classList.add('invalid');
         //includes is case sensitive
     }
+
+    //need to make sure the notification disappears soons
+    setTimeout(()=> {
+        toast.remove();
+    },6000);
 }
 
 </script>
