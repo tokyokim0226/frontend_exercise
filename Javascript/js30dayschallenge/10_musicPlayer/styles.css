@@ -49,6 +49,7 @@ nav .circle {
     if 4 values are given --> offset-x offset-y blur size 
     optional, 
     inset --> shadow goes inside the box
-    color --> any color system
+    color --> any color system rgba --> include shadow.shade
     */
 }
+
