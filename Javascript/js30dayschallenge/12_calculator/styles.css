@@ -58,9 +58,10 @@
 
 .calculator form input.equal {
     width: 145px;
-    /* Why is there the extra 5px?
+    /* Why is there the extra 5px?********************
     This is because of the default padding applied to inline elements
     hack -> setting font-size:0 on the form and then
     resetting the actual font-size on the input and button
+    ***********************************************
     */
 }
