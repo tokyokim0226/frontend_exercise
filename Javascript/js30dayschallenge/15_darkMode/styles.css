@@ -85,4 +85,13 @@ info p {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
+    transition: bottom 1s, left 1s;
+}
+
+.img-box:hover .back-img {
+    bottom: 30px;
+}
+
+.img-box:hover .main-img {
+    left:54%
 }
