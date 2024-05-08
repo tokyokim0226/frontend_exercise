@@ -55,7 +55,7 @@ nav ul li a:hover {
     color: #ff4321;
 }
 
-info p {
+.info p {
     color: #606463;
     line-height: 22px;
 }
@@ -89,9 +89,24 @@ info p {
 }
 
 .img-box:hover .back-img {
-    bottom: 30px;
+    bottom: 40px;
 }
 
 .img-box:hover .main-img {
     left:54%
+}
+
+.social-links {
+    margin-left: 8%;
+    margin-top: 100px;
+}
+
+.social-links a{
+    font-size: 30px;
+    color: #606163;
+    margin-right: 20px;
+}
+
+.social-links a:hover{
+    color: #ff4321;
 }
