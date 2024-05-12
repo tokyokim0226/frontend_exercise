@@ -19,7 +19,18 @@ function validateName(){
         Searching for a specific string --> "ain"
         Searching for a part of a string using regular expression
         What is a regular expression --> A sequence of symbols and characters expressing a string or pattern to be searched for within a longer piece of text
+        general format for a regex expression --> /pattern/modifiers
+        --> regex can be used to perform all types of text search and text replace operations
+        in js --> there are the search() and replace() functions 
+        search() --> searches for a string for a specified value and returns the position of the match
+        replace() --> replaces
+        match() --> check if the string matches the conditions/patterns
 
+        Modifiers - can be used to perform case-insnsitive more global searches
+        i --> case-insensitive
+        g --> global match
+        m --> multiline matching
+        d --? perform startna dn end matching
 
         */         
 

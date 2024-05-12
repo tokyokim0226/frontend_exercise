@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #191919;
+}
+
+.gallery{
+    width: 900px;
+    display: flex;
+    overflow-x: scroll;
+    /* overflow-x --
+    visible --> shows the overflow content, content x clipoped
+    hidden/clip --> overflowed content is clipped into element's padding box
+    scroll --> displays a scroll bar (horizontal) if overflow content exists. Clips inside element's padding box.
+    Browser displays the scroll bars in the horizontal direction regardless of whether content is clipoped or not
+    auto --> same as scroll, but X horizontal scroll bar if nothing is clipped
+    */
+}
+
+.gallery div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+    padding: 10px;
+    flex:none;
+}
+
+.gallery div img {
+    width: 100%;
+    filter:grayscale(100%);
+    /* filter grayscale makes it completely gray when set too 100% */
+    /* many other filter functions exist, such as blur, brightness, contrast, drop-shadow, grayscale, invert, opacity, saturate, hue-rotate, sepia */
+    transition: transform 0.5s;
+}
+
+.gallery::-webkit-scrollbar{
+    display:none;
+    /* scroll bar is hidden but can scroll with mousewheel */
+}
+
+.gallery-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20% auto; 
+    /* when percentage is used for margin, the percentage values are all calculated with respect to the WIDTH of the generated box's containing block.
+    This is true for 'margin-top' and 'margin-bottom' as well
+    
+    Why is vertical padding/margin relative to the horizontal size of the parent?
+    --> keeping it simple?
+    */
+}
+
+#backBtn, #nextBtn {
+    width: 50px;
+    cursor: pointer;
+    margin: 40px;
+}
+
+.gallery div img:hover{
+    filter:grayscale(0);
+    cursor: pointer;
+    transform: scale(1.1);
+    
+}
