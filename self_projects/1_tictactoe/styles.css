@@ -5,9 +5,14 @@
     box-sizing: border-box;
 }
 
+div.noSelect {
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit browsers */
+}
+
 .container{
     width: 90vh;
-    height: 90vh;
+    height: 95vh;
     background-color: bisque;
     position: absolute;
     display: flex;
@@ -26,6 +31,11 @@
     background-color: darkgoldenrod;
     padding: 1vh;
     margin: 1vh;
+    width: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .turn-notifier p {
@@ -52,7 +62,6 @@
 .row .cell {
     width: 20vh;
     height: 20vh;
-    border: black ;
     display: flex;
     background-color: white;
     margin: 2.5vh;
@@ -60,6 +69,7 @@
     align-items: center;
     /* do not need to add padding if i do jcc and */
     font-size: 20vh;
+    color: black;
 }
 
 .row .cell:hover {

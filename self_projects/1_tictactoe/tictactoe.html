@@ -10,7 +10,7 @@
 
 <div class="container">
         <div class="turn-notifier">
-            <p>It is Player 1's Turn</p>
+            <p id="text">Player 1's Turn</p>
         </div>
 
     <div class="game">
@@ -34,18 +34,81 @@
 
 <script>
 
-let btn = document.querySelectorAll('.cell');
+// Using querySelectorAll to select all the elements with the class 'cell' and putting them into a list
+let cells = document.querySelectorAll('.cell');
 let turn = 1;
+let nonEmptyCount = 0;
+let text = document.getElementById("text");
 
-for (let i = 0; i < btn.length; i++){
-    btn[i].addEventListener('click', function() {
-        if (turn === 0) {
-            
-        }else {
+// Function to check if the game is over
+function checkGameOver() {
+    if (checkWinner("O")) {
+        text.innerHTML = "Player 1 Wins"
+    }
+    else if (checkWinner("X")) {
+        text.innerHTML = "Player 2 Wins"
+    }
+    else if (nonEmptyCount === 9) {
+        text.innerHTML = "Game over";
+    }
+}
 
+function checkWinner(symbol) {
+    //checking for horizontal winners
+    for (let i = 0; i<3 ;i++) {
+        if (
+            cells[i*3] == symbol &&
+            cells[i*3 + 1] == symbol &&
+            cells[i*3 + 2] == symbol
+        ) {
+            return True
         }
+    }
+    for (let i=0; i<3; i++) {
+        if (
+            cells[i*3] == symbol &&
+            cells[i*3 + 3] == symbol &&
+            cells[i*3 + 6] == symbol 
+        ) {
+            return True
+        }
+    }
+    if (
+        (cells[0].innerHTML === symbol &&
+            cells[4].innerHTML === symbol &&
+            cells[8].innerHTML === symbol) ||
+        (cells[2].innerHTML === symbol &&
+            cells[4].innerHTML === symbol &&
+            cells[6].innerHTML === symbol)
+    ) {
+        return true;}
+    return false;
+    
+}
+
+for (let i = 0; i < cells.length; i++){
+    cells[i].addEventListener('click', function() {
+        let cell = this;
+        if (cell.innerHTML !== ""){
+            text.innerHTML = `Select empty Cell. Player ${turn}'s turn`
+            return
+        }
+        if (turn === 1) {
+            cell.innerHTML = "O"
+            turn = 2;
+            nonEmptyCount += 1;
+            text.innerHTML = `Player ${turn}'s turn`
+
+        }else {
+            cell.innerHTML = "X"
+            turn = 1;
+            nonEmptyCount += 1;
+            text.innerHTML = `Player ${turn}'s turn`
+        }
+        checkGameOver();
     })
 }
+
 
 
 </script>
