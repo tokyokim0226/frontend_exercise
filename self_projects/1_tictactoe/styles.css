@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 90vh;
+    height: 90vh;
+    background-color: bisque;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    /* when you are moving the element, you are moving its top left corner to the center of its parent (which is not visually seen as the item being in the center)
+    Therefore, to center the CENTER of the element you want to center, you need to further move that element by 50% of its width to the left and 50% of its height to the top*/
+    transform: translate(-50%,-50%); 
+    justify-content: center;
+    align-items: center;
+
+}
+
+.turn-notifier{
+    background-color: darkgoldenrod;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+.turn-notifier p {
+    font-size: 5vh;
+}
+
+.game{
+    width: 80vh;
+    height: 80vh;
+    position: relative;
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5vh;
+}
+
+.row {
+    position: relative;
+    /* background-color: white; */
+    margin: auto;
+    display: flex;
+}
+
+.row .cell {
+    width: 20vh;
+    height: 20vh;
+    border: black ;
+    display: flex;
+    background-color: white;
+    margin: 2.5vh;
+    justify-content: center;
+    align-items: center;
+    /* do not need to add padding if i do jcc and */
+    font-size: 20vh;
+}
+
+.row .cell:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+
