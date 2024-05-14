@@ -15,24 +15,31 @@
 
     <div class="game">
         <div class="row row1">
-            <div class="cell cell1"></div>
-            <div class="cell cell2"></div>
-            <div class="cell cell3"></div>
+            <div class="cell cell1 empty"></div>
+            <div class="cell cell2 empty"></div>
+            <div class="cell cell3 empty"></div>
         </div>
         <div class="row row2">
-            <div class="cell cell4"></div>
-            <div class="cell cell5"></div>
-            <div class="cell cell6"></div>
+            <div class="cell cell4 empty"></div>
+            <div class="cell cell5 empty"></div>
+            <div class="cell cell6 empty"></div>
         </div>
         <div class="row row3">
-            <div class="cell cell7"></div>
-            <div class="cell cell8"></div>
-            <div class="cell cell9"></div>
+            <div class="cell cell7 empty"></div>
+            <div class="cell cell8 empty"></div>
+            <div class="cell cell9 empty"></div>
         </div>
+    </div>
+
+    <!-- Have a separate box to click for game controls (Undo, Redo, Replay, Scoreboard) -->
+    <div class="gameControls">
+        
     </div>
 </div>
 
 <script>
+
+//---------------- Variable declaration for Game ---------------- //
 
 // Using querySelectorAll to select all the elements with the class 'cell' and putting them into a list
 let cells = document.querySelectorAll('.cell');
@@ -40,37 +47,33 @@ let turn = 1;
 let nonEmptyCount = 0;
 let text = document.getElementById("text");
 
-// Function to check if the game is over
-function checkGameOver() {
-    if (checkWinner("O")) {
-        text.innerHTML = "Player 1 Wins"
-    }
-    else if (checkWinner("X")) {
-        text.innerHTML = "Player 2 Wins"
-    }
-    else if (nonEmptyCount === 9) {
-        text.innerHTML = "Game over";
-    }
-}
+//---------------- Script for 1 Game (start to finish) ----------------//
 
+//adding event listeners for all cells
+for (let i = 0; i < cells.length; i++){
+    cells[i].addEventListener('click', selectCell);
+} // Here we want the eventlistener not to have an anonymous function but have the function declared elsewhere so we can delete it if necessary once game over
+
+//function to check winner, used in the next gameOver function
 function checkWinner(symbol) {
     //checking for horizontal winners
     for (let i = 0; i<3 ;i++) {
         if (
-            cells[i*3] == symbol &&
-            cells[i*3 + 1] == symbol &&
-            cells[i*3 + 2] == symbol
+            cells[i*3].innerHTML  === symbol &&
+            cells[i*3 + 1].innerHTML  === symbol &&
+            cells[i*3 + 2].innerHTML  === symbol
         ) {
-            return True
+            return true
         }
     }
     for (let i=0; i<3; i++) {
         if (
-            cells[i*3] == symbol &&
-            cells[i*3 + 3] == symbol &&
-            cells[i*3 + 6] == symbol 
+            //simple calculation erro
+            cells[i].innerHTML  === symbol &&
+            cells[i + 3].innerHTML  === symbol &&
+            cells[i + 6].innerHTML  === symbol 
         ) {
-            return True
+            return true
         }
     }
     if (
@@ -81,35 +84,81 @@ function checkWinner(symbol) {
             cells[4].innerHTML === symbol &&
             cells[6].innerHTML === symbol)
     ) {
-        return true;}
+        return true;
+    }
     return false;
     
 }
 
-for (let i = 0; i < cells.length; i++){
-    cells[i].addEventListener('click', function() {
-        let cell = this;
-        if (cell.innerHTML !== ""){
-            text.innerHTML = `Select empty Cell. Player ${turn}'s turn`
-            return
-        }
-        if (turn === 1) {
-            cell.innerHTML = "O"
-            turn = 2;
-            nonEmptyCount += 1;
-            text.innerHTML = `Player ${turn}'s turn`
+// Function to check if the game is over
+function checkGameOver() {
+    if (checkWinner("O")) {
+        text.innerHTML = "Player 1 Wins"
+        removeAllListeners()
+    }
+    //This must be an else if so that it doesn't overwrite it when player 2 wins
+    else if (checkWinner("X")) {
+        text.innerHTML = "Player 2 Wins"
+        removeAllListeners()
+    }
+    else if (nonEmptyCount === 9) {
+        text.innerHTML = "Game over. It's a draw";
+        removeAllListeners()
+    }
 
-        }else {
-            cell.innerHTML = "X"
-            turn = 1;
-            nonEmptyCount += 1;
-            text.innerHTML = `Player ${turn}'s turn`
-        }
-        checkGameOver();
-    })
+}
+
+// function to selectCell, which is the unfction that is added as the event listner
+function selectCell() {
+    //need a better feel for how to use "this"
+    let cell = this;
+    if (cell.innerHTML !== ""){
+        text.innerHTML = `Select empty Cell. Player ${turn}'s turn`
+    }
+    else if (turn === 1) {
+        cell.innerHTML = "O"
+        turn = 2;
+        nonEmptyCount += 1;
+        text.innerHTML = `Player ${turn}'s turn`
+        cell.classList.remove("empty")
+
+    }else {
+        cell.innerHTML = "X"
+        turn = 1;
+        nonEmptyCount += 1;
+        text.innerHTML = `Player ${turn}'s turn`
+        cell.classList.remove("empty")
+
+    }
+    checkGameOver();
+}
+
+//remove event listeners on all cells (game over)
+function removeAllListeners() {
+    for (let i=0; i<9; i++) {
+        cells[i].removeEventListener('click', selectCell);
+        cells[i].classList.add('gameOver')
+    }
 }
 
 
+// -------------------- Implementing Game Controls -------------------------//
+
+// Implementing Undo feature
+// Each time a cell is selected, keep track of the number of that cell by storing the cell number in a list
+
+// Currently, each time a cell is clicked, we do the followings:
+
+// 1) innerHTML of that cell is changed 
+// 2) turn number is changed
+// 3) nonEmptyCount of cells is changed
+// 4) innerHTML of text at the top is changed
+// 5) cell's classList of "empty" is removed 
+
+// All we have to do is backtrack (pop out of the stack/list) our most recently clicked cell from our list that we have been storing as we are playing the game, and then do the opposite of the features listed above. And most importantly not forget to pop a member out of the list
+
+// Edge case 1) Nothing to undo when empty
+// Edge case 2) Don't be a sore loser when the game has already ended
 
 </script>
 

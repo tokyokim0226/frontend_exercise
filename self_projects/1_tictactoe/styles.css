@@ -5,11 +5,6 @@
     box-sizing: border-box;
 }
 
-div.noSelect {
-    -moz-user-select: none; /* mozilla browsers */
-    -khtml-user-select: none; /* webkit browsers */
-}
-
 .container{
     width: 90vh;
     height: 95vh;
@@ -73,7 +68,17 @@ div.noSelect {
 }
 
 .row .cell:hover {
+    cursor: pointer;
+    background-color: rgba(240, 139, 139, 0.9);
+}
+
+.row .cell.empty:hover {
+    /* We can remove this hover effect by having a class then removing tat class when clicked in the event listner in script */
     background-color: bisque;
     cursor: pointer;
 }
 
+.row .cell.gameOver:hover {
+    cursor: default;
+    background-color: white;
+}
