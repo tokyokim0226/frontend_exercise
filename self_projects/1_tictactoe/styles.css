@@ -5,7 +5,13 @@
     box-sizing: border-box;
 }
 
-.container{
+.big-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-container{
     width: 90vh;
     height: 95vh;
     background-color: bisque;
@@ -16,7 +22,7 @@
     left: 50%;
     /* when you are moving the element, you are moving its top left corner to the center of its parent (which is not visually seen as the item being in the center)
     Therefore, to center the CENTER of the element you want to center, you need to further move that element by 50% of its width to the left and 50% of its height to the top*/
-    transform: translate(-50%,-50%); 
+    transform: translate(-70%,-50%); 
     justify-content: center;
     align-items: center;
 
@@ -81,4 +87,68 @@
 .row .cell.gameOver:hover {
     cursor: default;
     background-color: white;
+}
+
+.board{
+    height: 45vh;
+    width: 40vh;
+    background-color: rgba(211, 207, 151, 0.633);
+    position: absolute;
+    display: flex;
+    top:50%;
+    left:70%;
+    transform: translate(0%,-50%);
+    /* If want to keep the corner the same percentage rounded, also use vh/some sort of metric that is relative to the viewport size for bordder radius as well */
+    border-radius: 5vh; 
+    flex-direction: column;
+    /* If the below is active then it is forcing the items to stay on the main axis */
+    /* align-items: center; */
+}
+
+.board .title {
+    background-color: rgb(181, 164, 232);
+    width: 35vh;
+    padding: 2%;
+    margin: 5% auto 5%;
+    font-size: 4vh;
+    border-radius: 3vh; 
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.board .player {
+    font-size: 3vh;
+    margin-bottom: 1vh;
+}
+
+.board .score {
+    font-size: 2vh;
+}
+
+.board .scoreBoard {
+    display: flex;
+    justify-content: space-evenly;
+    /*  space-between --> only creates maximum space BETWEEN elements 
+        space-evenly --> leaves same amount of space at both endsß
+        */
+    text-align: center;
+    margin-bottom: 1vh;
+}
+
+.board .duringGame{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}
+
+.board .afterGame {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.board button {
+    width: 44%;
+    padding: 4%;
+    font-size: 2vh;
+    
 }

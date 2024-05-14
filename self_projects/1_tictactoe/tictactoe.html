@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<div class="container">
+
+<div class="small-container">
         <div class="turn-notifier">
             <p id="text">Player 1's Turn</p>
         </div>
@@ -32,10 +33,38 @@
     </div>
 
     <!-- Have a separate box to click for game controls (Undo, Redo, Replay, Scoreboard) -->
-    <div class="gameControls">
-        
-    </div>
+
 </div>
+<!-- The game controls can be on the side as a scoreboard ish -->
+<div class="board">
+    <h1 id="scoresTitle" class="title">Scores</h1>
+    <div class="scoreBoard">
+        <div class="player1">
+            <h2 class="player" id="player1">Player 1</h2>
+            <p class="score" id="score1">Score</p>
+        </div>
+        <div class="player2">
+            <h2 class="player" id="player2">Player 2</h2>
+            <p class="score" id="score2">Score</p>
+        </div>
+    </div>
+
+    <h1 id="controlsTitle" class="title">Game Controls</h1>
+    <div class="duringGame">
+        <!-- undo button should be hidden until the stack for player exists/is no longer empty-->
+        <button class="undo">Undo</button>
+        <!-- need to make sure redo button is hidden until the stack for undo button exists -->
+        <button class="redo">Redo</button>
+    </div>
+    <div class="afterGame">
+        <!-- Later need to deal with conflict of mixing undos and redos and playing???? -->
+        <button class="playAgain">Play Again</button>
+    </div>
+
+</div>
+
+
+<!-- 여기서부터 자바스크립트 시작 -->
 
 <script>
 
@@ -46,6 +75,9 @@ let cells = document.querySelectorAll('.cell');
 let turn = 1;
 let nonEmptyCount = 0;
 let text = document.getElementById("text");
+
+
+let lastClickedStack = []
 
 //---------------- Script for 1 Game (start to finish) ----------------//
 
