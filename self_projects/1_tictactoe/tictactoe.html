@@ -52,13 +52,13 @@
     <h1 id="controlsTitle" class="title">Game Controls</h1>
     <div class="duringGame">
         <!-- undo button should be hidden until the stack for player exists/is no longer empty-->
-        <button class="undo">Undo</button>
+        <button class="undo" id="undo">Undo</button>
         <!-- need to make sure redo button is hidden until the stack for undo button exists -->
-        <button class="redo">Redo</button>
+        <button class="redo" id="redo">Redo</button>
     </div>
     <div class="afterGame">
         <!-- Later need to deal with conflict of mixing undos and redos and playing???? -->
-        <button class="playAgain">Play Again</button>
+        <button class="playAgain" id="playAgain">Play Again</button>
     </div>
 
 </div>
@@ -78,7 +78,13 @@ let text = document.getElementById("text");
 
 
 //variable to store order of last clicked cell
-let lastClickedStack = []
+let lastClickedStack = [];
+
+let btnUndo = document.getElementById("undo");
+let btnRedo = document.getElementById("redo");
+let btnplayAgain = document.getElementById("playAgain");
+
+let undoStack = [];
 
 //---------------- Script for 1 Game (start to finish) ----------------//
 
@@ -154,7 +160,8 @@ function selectCell() {
         turn = 2;
         nonEmptyCount += 1;
         text.innerHTML = `Player ${turn}'s turn`
-        cell.classList.remove("empty")
+        cell.classList.remove("empty");
+        undoStack = [];
 
     }else {
         lastClickedStack.push(this)
@@ -162,10 +169,10 @@ function selectCell() {
         turn = 1;
         nonEmptyCount += 1;
         text.innerHTML = `Player ${turn}'s turn`
-        cell.classList.remove("empty")
-
+        cell.classList.remove("empty");
+        undoStack = [];
     }
-    console.log(lastClickedStack)
+    // console.log(lastClickedStack);
     checkGameOver();
 }
 
@@ -195,6 +202,48 @@ function removeAllListeners() {
 
 // Edge case 1) Nothing to undo when empty
 // Edge case 2) Don't be a sore loser when the game has already ended
+
+btnUndo.addEventListener('click', undo);
+
+function undo() {
+    // checking if function is called when button is clicked
+    // console.log("undo"); 
+
+    // The === is strict equality, not an identity operator --> checked to see if it is the same reference
+    //WHen i use == to compare two empty lists, they are different reference
+    if (lastClickedStack.length == 0) {
+        text.innerHTML = `Nothing to Undo. Player ${turn}'s turn`;
+    }else {
+        let popped = lastClickedStack.pop()
+        popped.innerHTML = ""
+        popped.classList.add("empty");
+        nonEmptyCount -= 1;
+        turn = turn==1?2:1;
+        text.innerHTML = `Undo complete. Player ${turn}'s turn`;
+        undoStack.push(popped);
+
+        // console.log(popped);
+        // console.log(lastClickedStack);
+    }
+}
+
+
+btnRedo.addEventListener('click', redo);
+
+function redo() {
+    if (undoStack.length == 0) {
+        console.log("There is nothing to redo");
+        text.innerHTML = `Nothing to Redo. Player ${turn}'s turn`
+    }else {
+        let popped = undoStack.pop();
+        popped.innerHTML = turn==1?"O":"X";
+        turn = turn==1? 2:1;
+        lastClickedStack.push(popped);
+        text.innerHTML = `Redo complete. Player ${turn}'s turn`
+        nonEmptyCount += 1
+        popped.classList.remove("empty");
+    }
+}
 
 </script>
 
