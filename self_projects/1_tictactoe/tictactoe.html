@@ -41,11 +41,11 @@
     <div class="scoreBoard">
         <div class="player1">
             <h2 class="player" id="player1">Player 1</h2>
-            <p class="score" id="score1">Score</p>
+            <p class="score" id="score1">Score: 0</p>
         </div>
         <div class="player2">
             <h2 class="player" id="player2">Player 2</h2>
-            <p class="score" id="score2">Score</p>
+            <p class="score" id="score2">Score: 0</p>
         </div>
     </div>
 
@@ -59,6 +59,7 @@
     <div class="afterGame">
         <!-- Later need to deal with conflict of mixing undos and redos and playing???? -->
         <button class="playAgain" id="playAgain">Play Again</button>
+        <button class="reset" id="reset">Reset Scores</button>
     </div>
 
 </div>
@@ -76,6 +77,12 @@ let turn = 1;
 let nonEmptyCount = 0;
 let text = document.getElementById("text");
 
+let score1 = document.getElementById("score1");
+let score2 = document.getElementById("score2");
+
+let sc1 = 0;
+let sc2 = 0;
+
 
 //variable to store order of last clicked cell
 let lastClickedStack = [];
@@ -83,6 +90,7 @@ let lastClickedStack = [];
 let btnUndo = document.getElementById("undo");
 let btnRedo = document.getElementById("redo");
 let btnplayAgain = document.getElementById("playAgain");
+let btnreset = document.getElementById('reset');
 
 let undoStack = [];
 
@@ -132,13 +140,17 @@ function checkWinner(symbol) {
 // Function to check if the game is over
 function checkGameOver() {
     if (checkWinner("O")) {
-        text.innerHTML = "Player 1 Wins"
-        removeAllListeners()
+        text.innerHTML = "Player 1 Wins";
+        removeAllListeners();
+        sc1 += 1;
+        score1.innerHTML = `Score: ${sc1}`;
     }
     //This must be an else if so that it doesn't overwrite it when player 2 wins
     else if (checkWinner("X")) {
-        text.innerHTML = "Player 2 Wins"
-        removeAllListeners()
+        text.innerHTML = "Player 2 Wins";
+        removeAllListeners();
+        sc2 += 1;
+        score1.innerHTML = `Score: ${sc2}`;
     }
     else if (nonEmptyCount === 9) {
         text.innerHTML = "Game over. It's a draw";
@@ -162,6 +174,7 @@ function selectCell() {
         text.innerHTML = `Player ${turn}'s turn`
         cell.classList.remove("empty");
         undoStack = [];
+        
 
     }else {
         lastClickedStack.push(this)
@@ -208,7 +221,6 @@ btnUndo.addEventListener('click', undo);
 function undo() {
     // checking if function is called when button is clicked
     // console.log("undo"); 
-
     // The === is strict equality, not an identity operator --> checked to see if it is the same reference
     //WHen i use == to compare two empty lists, they are different reference
     if (lastClickedStack.length == 0) {
@@ -227,6 +239,7 @@ function undo() {
     }
 }
 
+//undoing when game is over/redoing when game is over should be disabled --> edge case
 
 btnRedo.addEventListener('click', redo);
 
@@ -245,6 +258,7 @@ function redo() {
     }
 }
 
+btnplayAgain.addEventListener('click', ) 
 </script>
 
 
