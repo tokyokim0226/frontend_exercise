@@ -97,9 +97,13 @@ let undoStack = [];
 //---------------- Script for 1 Game (start to finish) ----------------//
 
 //adding event listeners for all cells
-for (let i = 0; i < cells.length; i++){
-    cells[i].addEventListener('click', selectCell);
-} // Here we want the eventlistener not to have an anonymous function but have the function declared elsewhere so we can delete it if necessary once game over
+function addClickListeners() {
+    for (let i = 0; i < cells.length; i++){
+        cells[i].addEventListener('click', selectCell);
+    } // Here we want the eventlistener not to have an anonymous function but have the function declared elsewhere so we can delete it if necessary once game over
+}
+
+addClickListeners();
 
 //function to check winner, used in the next gameOver function
 function checkWinner(symbol) {
@@ -150,7 +154,7 @@ function checkGameOver() {
         text.innerHTML = "Player 2 Wins";
         removeAllListeners();
         sc2 += 1;
-        score1.innerHTML = `Score: ${sc2}`;
+        score2.innerHTML = `Score: ${sc2}`;
     }
     else if (nonEmptyCount === 9) {
         text.innerHTML = "Game over. It's a draw";
@@ -258,7 +262,35 @@ function redo() {
     }
 }
 
-btnplayAgain.addEventListener('click', ) 
+btnplayAgain.addEventListener('click', playAgain);
+
+function playAgain() {
+    addClickListeners();
+    turn=turn==1?1:2;
+    nonEmptyCount = 0;
+    undoStack = [];
+    lastClickedStack = [];
+    for (let i=0; i<cells.length; i++) {
+        cells[i].innerHTML = "";
+        cells[i].classList.remove('gameOver');
+        if (!cells[i].classList.contains('empty')){
+            cells[i].classList.add('empty');
+        }
+        text.innerHTML = `Player ${turn} starts first`
+    }
+}
+
+btnreset.addEventListener('click', reset);
+
+function reset() {
+    sc1 = 0; sc2 = 0;
+    score1.innerHTML = `Score: ${sc1}`;
+    score2.innerHTML = `Score: ${sc2}`;
+    playAgain();
+    text.innerHTML = `Scores Reset. Player ${turn} starts first`
+}
+
+
 </script>
 
 
