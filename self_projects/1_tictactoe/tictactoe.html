@@ -92,6 +92,8 @@ let btnRedo = document.getElementById("redo");
 let btnplayAgain = document.getElementById("playAgain");
 let btnreset = document.getElementById('reset');
 
+let gameOverFlag = 0;
+
 let undoStack = [];
 
 //---------------- Script for 1 Game (start to finish) ----------------//
@@ -148,6 +150,7 @@ function checkGameOver() {
         removeAllListeners();
         sc1 += 1;
         score1.innerHTML = `Score: ${sc1}`;
+        gameOverFlag = 1;
     }
     //This must be an else if so that it doesn't overwrite it when player 2 wins
     else if (checkWinner("X")) {
@@ -155,10 +158,13 @@ function checkGameOver() {
         removeAllListeners();
         sc2 += 1;
         score2.innerHTML = `Score: ${sc2}`;
+        gameOverFlag = 1;
+
     }
     else if (nonEmptyCount === 9) {
         text.innerHTML = "Game over. It's a draw";
         removeAllListeners()
+        gameOverFlag = 1;
     }
 
 }
@@ -229,6 +235,8 @@ function undo() {
     //WHen i use == to compare two empty lists, they are different reference
     if (lastClickedStack.length == 0) {
         text.innerHTML = `Nothing to Undo. Player ${turn}'s turn`;
+    }else if(gameOverFlag == 1){
+        text.innerHTML = "No being a sore loser :p"
     }else {
         let popped = lastClickedStack.pop()
         popped.innerHTML = ""
@@ -248,7 +256,9 @@ function undo() {
 btnRedo.addEventListener('click', redo);
 
 function redo() {
-    if (undoStack.length == 0) {
+    if(gameOverFlag == 1){
+        text.innerHTML = "No being a sore loser :p";
+    }else if (undoStack.length == 0) {
         console.log("There is nothing to redo");
         text.innerHTML = `Nothing to Redo. Player ${turn}'s turn`
     }else {
@@ -270,6 +280,7 @@ function playAgain() {
     nonEmptyCount = 0;
     undoStack = [];
     lastClickedStack = [];
+    gameOverFlag = 0;
     for (let i=0; i<cells.length; i++) {
         cells[i].innerHTML = "";
         cells[i].classList.remove('gameOver');
@@ -284,6 +295,7 @@ btnreset.addEventListener('click', reset);
 
 function reset() {
     sc1 = 0; sc2 = 0;
+    gameOverFlag = 0;
     score1.innerHTML = `Score: ${sc1}`;
     score2.innerHTML = `Score: ${sc2}`;
     playAgain();
