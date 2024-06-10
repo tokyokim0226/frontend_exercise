@@ -24,7 +24,7 @@
     import addTwo from "./addTwo";
     ```
 
-- React X uses OOP, instead uses 'composition'
+- Instead of using OOP, React uses 'composition'
 - **Component-based architecture** - a design philosophy building software based on reusable components of code
   - **Reusable**
   - **Independent**
@@ -32,9 +32,16 @@
 - **DOM** - logical tree-liek structure representing the HTML document
   - uses nodes to describe various parts of the document
 
+- **Functional Compenents** - acts like a JavaScript function
+
 #### JSX
 - JSX syntax looks very similar to HTML
 - Allows you to write JS code inside what looks like HTML elements
+- **Important!** - first letter of a component name must be capitalized
+  - lower-case componenets are treated as nomral HTML elements by React
+  - need to capitalize components to distinguish JSX and HTML components
+  - function name inside component must also be capitalized
 - **Transpiling** - interpreting a programming language and translating it to a specific target language (transformation + compiling)
-
+- **Transpiler** - takes a piece of code and transforms it into some other code
 - Components - allow you to build more modular apps
+- **Babel** - allows you to transpile JSX code (which cannot be understood by a browser) into plain JavaScript code (which can be understood by a browser).
