@@ -45,3 +45,41 @@
 - **Transpiler** - takes a piece of code and transforms it into some other code
 - Components - allow you to build more modular apps
 - **Babel** - allows you to transpile JSX code (which cannot be understood by a browser) into plain JavaScript code (which can be understood by a browser).
+
+##### Building a Layyout
+- How would you organize your code for a given structure of an application?
+  - either 1) group by features or 2) group by file type
+  - Don't nest folders too deep, keep things simple
+  - Don't spend more than 5 mintues setting up a project
+  - For a small project, you can keep it as simple as just adding a **components** folder and moving all your components into it
+  
+
+- **className** attribute in JSX syntax - since class is a reserved keyword in javascript, we must use className instead
+- **Javascript object**  
+  - variable that can contain many values
+  - groups related data of different types
+  - contains object properties
+- **React props**
+  - Pass data between components
+  - Arguments are passed like HTML attributes
+  - Uses the keyword **props** - props is an object in React
+  - **props** can be defined as a parameter within a functional component
+  - You can pass a prop to a component by adding an attribute too the compoonent being rendered (when it is rendered from its parent element), with the attribute's value becoming the value of the passed-in prop
+
+**Ternary operator** - uses the ?
+```jsx
+let name = 'Bob';
+name == 'Bob' ? console.log('Hello, Bob') : console.log('Hello, Friend');
+
+```
+- a shorthand syntax that I can use as a replacement for the if statement
+
+
+#### Function declaration vs Function expression
+- **Function declaration** - starts the line with the keyword function
+- **Function expression** - assign a function to a variable, uses = or =>.
+
+##### Data Flow in React
+- Only moves in one way (parent to child)
+- This ensures that data is moving from top to bottom through the component hierarchy
+- also ensures that changes are transmitted through the system
