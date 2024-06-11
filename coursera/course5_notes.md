@@ -80,6 +80,11 @@ name == 'Bob' ? console.log('Hello, Bob') : console.log('Hello, Friend');
 - **Function expression** - assign a function to a variable, uses = or =>.
 
 ##### Data Flow in React
-- Only moves in one way (parent to child)
+- Only moves in one way (parent to child) via **props**
+- A child component can't mutate or change its props - can onlyy read them and re-render/only consumed
 - This ensures that data is moving from top to bottom through the component hierarchy
 - also ensures that changes are transmitted through the system
+- **props** belongs to the parent that renders the component
+- **state** data belongs to the component itself
+  - state is a data in a component that determines behavior
+  - allows components to stay in sync with each otehr and ensures that your app behaves as intended
