@@ -87,4 +87,14 @@ name == 'Bob' ? console.log('Hello, Bob') : console.log('Hello, Friend');
 - **props** belongs to the parent that renders the component
 - **state** data belongs to the component itself
   - state is a data in a component that determines behavior
-  - allows components to stay in sync with each otehr and ensures that your app behaves as intended
+  - allows components to stay in sync with each otehr and ensures that your app behaves as intended 
+
+```jsx
+const [greet, setGreet] = React.useState("Hi");
+// Here, greet is the state variable and setGreet is the state function (state function adds a `set` in front of the state variable name by convention)
+//cannot use the state functiono directly
+```
+
+- **Lifting up a state** is when you move a state from a child component to a parent component so that other sibling omponents of the child component can also access the state.
+- **Prop drilling** is a situation where you are passing data from a parent to a child component, then to a grandchild component, and so on, until it reaches a more distant component further down the component tree, where this data is required.
+  - Props drilling simply means passing a prop through props objects through several layers of components. The more layers there are, the more repetitive and unnecessary this feels. There are various ways to deal with this, as you’ll learn in the lesson items that follow.
