@@ -98,3 +98,23 @@ const [greet, setGreet] = React.useState("Hi");
 - **Lifting up a state** is when you move a state from a child component to a parent component so that other sibling omponents of the child component can also access the state.
 - **Prop drilling** is a situation where you are passing data from a parent to a child component, then to a grandchild component, and so on, until it reaches a more distant component further down the component tree, where this data is required.
   - Props drilling simply means passing a prop through props objects through several layers of components. The more layers there are, the more repetitive and unnecessary this feels. There are various ways to deal with this, as you’ll learn in the lesson items that follow.
+
+**Single page Applications**
+- single page applications allow the user to interact with websites without downloading entire new webpages, which was the traditional method of loading webpages
+  - instead, it rewrites the current webpage as the user interacts with it
+
+**Assets**
+- In react, assets can be things like images, styleheets, fonts, media files, or basically any file that's needed by your app at runtime
+- in other words, assetes are all the files that your React app needs to have access to in order to work as intended
+- Assets essential for application functionality are conventionally placed within the src folder for processing by build tools, while non-essential assets are typically stored in the public folder in React applications. 
+  - This is just a convention, not a strict rule - but keep in mind that it is good development practice to do so
+- In react, assets can be either:
+  - 1) rendered by using the import statement and then calling it
+  - 2) directly accessed without import by using the require() and placing the filepath directly inside.
+
+**Bundling**
+- Bundling is a process that takes all the imported files in an app and joins them into a single file, referred to as a **bundle**
+- **webpack** - a module bundler
+  - takes in various kind of files and bundles them together so that a browser can understand that bundle and work with it
+  - webpack builds a dependency graph and bundles modules into one or more files that a browser can consume
+  - 
