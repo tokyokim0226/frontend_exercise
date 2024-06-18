@@ -115,6 +115,6 @@ const [greet, setGreet] = React.useState("Hi");
 **Bundling**
 - Bundling is a process that takes all the imported files in an app and joins them into a single file, referred to as a **bundle**
 - **webpack** - a module bundler
-  - takes in various kind of files and bundles them together so that a browser can understand that bundle and work with it
+  - takes in various kind of files an d bundles them together so that a browser can understand that bundle and work with it
   - webpack builds a dependency graph and bundles modules into one or more files that a browser can consume
   - 
